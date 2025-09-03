@@ -50,3 +50,39 @@ CREATE TABLE gold.fact_sales(
 	price int 
 );
 GO
+
+TRUNCATE TABLE gold.dim_customers;
+GO
+
+BULK INSERT gold.dim_customers
+FROM 'C:\sql\sql-data-analytics-project\datasets\csv-files\gold.dim_customers.csv'
+WITH (
+	FIRSTROW = 2,
+	FIELDTERMINATOR = ',',
+	TABLOCK
+);
+GO
+
+TRUNCATE TABLE gold.dim_products;
+GO
+
+BULK INSERT gold.dim_products
+FROM 'C:\sql\sql-data-analytics-project\datasets\csv-files\gold.dim_products.csv'
+WITH (
+	FIRSTROW = 2,
+	FIELDTERMINATOR = ',',
+	TABLOCK
+);
+GO
+
+TRUNCATE TABLE gold.fact_sales;
+GO
+
+BULK INSERT gold.fact_sales
+FROM 'C:\sql\sql-data-analytics-project\datasets\csv-files\gold.fact_sales.csv'
+WITH (
+	FIRSTROW = 2,
+	FIELDTERMINATOR = ',',
+	TABLOCK
+);
+GO
